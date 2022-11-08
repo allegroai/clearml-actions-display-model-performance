@@ -25,7 +25,7 @@ runs:
         python-version: '3.10'
     - name: Install ClearML
       shell: bash
-      run: pip install -r clearml==1.7.2 github3.py==3.2.0 tabulate==0.9.0 pandas==1.5.1 Jinja2==3.1.2
+      run: pip install clearml==1.7.2 github3.py==3.2.0 tabulate==0.9.0 pandas==1.5.1 Jinja2==3.1.2
     - name: Start the task
       shell: bash
       run: python task_stats_to_comment.py

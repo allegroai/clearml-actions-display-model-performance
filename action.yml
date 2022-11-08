@@ -17,11 +17,6 @@ branding:
   color: 'purple'
   icon: 'monitor'
 runs:
-  env:
-    CLEARML_API_ACCESS_KEY: ${{ inputs.CLEARML_API_ACCESS_KEY }}
-    CLEARML_API_SECRET_KEY: ${{ inputs.CLEARML_API_SECRET_KEY }}
-    CLEARML_API_HOST: ${{ inputs.CLEARML_API_HOST }}
-    GH_TOKEN: ${{ inputs.GH_TOKEN }}
   using: 'composite'
   steps:
     - uses: actions/checkout@v3
@@ -34,4 +29,9 @@ runs:
     - name: Start the task
       shell: bash
       run: python task_stats_to_comment.py
+      env:
+        CLEARML_API_ACCESS_KEY: ${{ inputs.CLEARML_API_ACCESS_KEY }}
+        CLEARML_API_SECRET_KEY: ${{ inputs.CLEARML_API_SECRET_KEY }}
+        CLEARML_API_HOST: ${{ inputs.CLEARML_API_HOST }}
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
     

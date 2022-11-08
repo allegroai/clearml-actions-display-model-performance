@@ -18,6 +18,12 @@ branding:
   icon: 'monitor'
 runs:
   using: 'composite'
+  env:
+    CLEARML_API_ACCESS_KEY: ${{ inputs.CLEARML_API_ACCESS_KEY }}
+    CLEARML_API_SECRET_KEY: ${{ inputs.CLEARML_API_SECRET_KEY }}
+    CLEARML_API_HOST: ${{ inputs.CLEARML_API_HOST }}
+    GH_TOKEN: ${{ inputs.GH_TOKEN }}
+    COMMIT_ID: ${{ github.event.pull_request.head.sha }}
   steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4

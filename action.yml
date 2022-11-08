@@ -11,6 +11,8 @@ inputs:
   CLEARML_API_HOST:
     description: 'ClearML server api host'
     required: true
+  GH_TOKEN:
+    description: 'Github personal access token to add the comment.'
 branding:
   color: 'purple'
   icon: 'monitor'

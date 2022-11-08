@@ -1,0 +1,28 @@
+# action.yml
+name: 'ClearML get task stats'
+description: 'Search ClearML for a task corresponding to the current PR and add a comment with its scalars.'
+inputs:
+  CLEARML_API_ACCESS_KEY:
+    description: 'ClearML api access key (can be generated in your profile page)'
+    required: true
+  CLEARML_API_SECRET_KEY:
+    description: 'ClearML api secret key (can be generated in your profile page)'
+    required: true
+  CLEARML_API_HOST:
+    description: 'ClearML server api host'
+    required: true
+branding:
+  color: 'purple'
+  icon: 'monitor'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install ClearML
+      run: pip install -r requirements.txt
+    - name: Start the task
+      run: python task_stats_to_comment.py
+    

@@ -23,10 +23,10 @@ runs:
         python-version: '3.10'
     - name: Install ClearML
       shell: bash
-      run: pip install clearml==1.7.2 github3.py==3.2.0 tabulate==0.9.0 pandas==1.5.1 Jinja2==3.1.2
+      run: pip install -r ${{ github.action_path }}/requirements.txt
     - name: Start the task
       shell: bash
-      run: python task_stats_to_comment.py
+      run: python ${{ github.action_path }}/task_stats_to_comment.py
       env:
         CLEARML_API_ACCESS_KEY: ${{ inputs.CLEARML_API_ACCESS_KEY }}
         CLEARML_API_SECRET_KEY: ${{ inputs.CLEARML_API_SECRET_KEY }}

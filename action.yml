@@ -13,6 +13,7 @@ inputs:
     required: true
   GH_TOKEN:
     description: 'Github personal access token to add the comment.'
+    required: true
 runs:
   using: 'composite'
   steps:

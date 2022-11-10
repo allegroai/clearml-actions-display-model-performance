@@ -72,6 +72,8 @@ def get_clearml_task_of_current_commit(commit_id):
         f"Querying tasks in project {os.getenv('CLEARML_PROJECT')}"
         f" with name {os.getenv('CLEARML_TASK_NAME')} on commit hash {commit_id}"
     )
+    if not os.getenv('CLEARML_PROJECT') and os.getenv('CLEARML_TASK_NAME'):
+        raise ValueError("Both CLEARML_PROJECT and CLEARML_TASK_NAME have to be set to use specific querying.")
     tasks = Task.query_tasks(
         project_name=os.getenv('CLEARML_PROJECT'),
         task_name=os.getenv('CLEARML_TASK_NAME'),

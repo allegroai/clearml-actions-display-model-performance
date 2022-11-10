@@ -1,5 +1,7 @@
 # GitHub Action For Retrieving Experiments Stats With ClearML
 
+![Screenshot](images/checks_green.png)
+
 Search ClearML for a task corresponding to the current PR and automatically add a comment with its scalars.
 
 The action will identify a ClearML task as "corresponding" to the current PR if:

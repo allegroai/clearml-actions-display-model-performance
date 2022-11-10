@@ -70,7 +70,7 @@ def get_clearml_task_of_current_commit(commit_id):
     # Get the ID and Diff of all tasks based on the current commit hash, order by newest
     print(
         f"Querying tasks in project {os.getenv('CLEARML_PROJECT')}"
-        f"with name {os.getenv('CLEARML_TASK_NAME')} on commit hash {commit_id}"
+        f" with name {os.getenv('CLEARML_TASK_NAME')} on commit hash {commit_id}"
     )
     tasks = Task.query_tasks(
         project_name=os.getenv('CLEARML_PROJECT'),

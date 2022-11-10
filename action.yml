@@ -19,6 +19,7 @@ inputs:
     default: ''
   CLEARML_TASK:
     description: 'Which task name to search for. When not set, will search everything which might be slower. (default: "")'
+    default: ''
 runs:
   using: 'composite'
   steps:

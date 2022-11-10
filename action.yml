@@ -17,7 +17,7 @@ inputs:
   CLEARML_PROJECT:
     description: 'Which project to search in for the task. When not set, will search everything which might be slower. (default: "")'
     default: ''
-  CLEARML_TASK:
+  CLEARML_TASK_NAME:
     description: 'Which task name to search for. When not set, will search everything which might be slower. (default: "")'
     default: ''
 runs:

@@ -39,5 +39,5 @@ runs:
         CLEARML_API_HOST: ${{ inputs.CLEARML_API_HOST }}
         GH_TOKEN: ${{ inputs.GH_TOKEN }}
         CLEARML_PROJECT: ${{ inputs.CLEARML_PROJECT }}
-        CLEARML_TASK: ${{ inputs.CLEARML_TASK }}
+        CLEARML_TASK_NAME: ${{ inputs.CLEARML_TASK_NAME }}
     

@@ -14,6 +14,11 @@ inputs:
   GH_TOKEN:
     description: 'Github personal access token to add the comment.'
     required: true
+  CLEARML_PROJECT:
+    description: 'Which project to search in for the task. When not set, will search everything which might be slower. (default: "")'
+    default: ''
+  CLEARML_TASK:
+    description: 'Which task name to search for. When not set, will search everything which might be slower. (default: "")'
 runs:
   using: 'composite'
   steps:
@@ -32,4 +37,6 @@ runs:
         CLEARML_API_SECRET_KEY: ${{ inputs.CLEARML_API_SECRET_KEY }}
         CLEARML_API_HOST: ${{ inputs.CLEARML_API_HOST }}
         GH_TOKEN: ${{ inputs.GH_TOKEN }}
+        CLEARML_PROJECT: ${{ inputs.CLEARML_PROJECT }}
+        CLEARML_TASK: ${{ inputs.CLEARML_TASK }}
     

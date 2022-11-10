@@ -69,11 +69,13 @@ def get_clearml_task_of_current_commit(commit_id):
     """Find the ClearML task that correspond to the exact codebase in the commit ID."""
     # Get the ID and Diff of all tasks based on the current commit hash, order by newest
     tasks = Task.query_tasks(
+        project_name=os.getenv('CLEARML_PROJECT'),
+        task_name=os.getenv('CLEARML_TASK_NAME'),
         task_filter={
             'order_by': ['-last_update'],
-            '_all_': dict(fields=['script.version_num'],
-                          pattern=commit_id
-                          ),
+            '_all_': dict(
+                fields=['script.version_num'], pattern=commit_id
+            ),
             'status': ['completed']
         },
         additional_return_fields=['script.diff']

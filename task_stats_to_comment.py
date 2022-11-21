@@ -55,8 +55,8 @@ def get_task_stats(task):
     if task_status == "completed":
         table = create_comment_output(task, task_status)
         if table:
-            return f"Results\n\n{table}\n\n" \
-                    f"You can view full task results [here]({task.get_output_log_web_page()})"
+            return f"Metrics\n{table}\n\n" \
+                   f"You can view full task results [here]({task.get_output_log_web_page()})"
         else:
             return (f"Something went wrong when creating the task table. "
                     f"Check full task [here]({task.get_output_log_web_page()})")

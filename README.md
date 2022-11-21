@@ -2,12 +2,18 @@
 
 ![Screenshot](images/checks_green.png)
 
-Search ClearML for a task corresponding to the current PR and automatically add a comment with its scalars.
+The goal of this Github action is to make the ClearML Metric performance of a specific PR visible, by adding a nice table as a comment on the PR. As is clear from the first sentence, this action is designed to run on a PR.
 
-The action will identify a ClearML task as "corresponding" to the current PR if:
+The assumption here is that when submitting a PR, the developer would have already run the code in the PR at least once locally to check that their changes actually work. If they are using ClearML this means there should be at least one task inside ClearML that meets the requirements below, if not the code is considered untested and the pipeline will fail.
+
+The action will check if a ClearML task exists that meets the following requirements:
 - The commit hash captured in the task is equal to the commit hash of the current PR
 - There are NO uncommitted changes logged on the ClearML task
 - The ClearML task was successful
+
+If these are all true, then we can assume that the PR submitter has successfully ran the code from the PR locally at least once. We can now get this corresponding task and display all of its metrics in a handy table on the PR itself, to make it easier for reviewers to see what's going on (and even see the output of the code when it ran using the link to the original task!)
+
+![Diagram](images/display_model_performance.excalidraw.png)
 
 ## Example usage
 
@@ -19,11 +25,11 @@ on:
     types: [ assigned, opened, edited, reopened, synchronize ]
 
 jobs:
-  task-stats-to-comment:
+  display-model-performance: # Rename full repo as well
       runs-on: ubuntu-20.04
       steps:
         - name: Get task stats
-          uses: thepycoder/clearml-actions-get-stats@main
+          uses: allegroai/clearml-actions-get-stats@main
           with:
             CLEARML_API_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
             CLEARML_API_SECRET_KEY: ${{ secrets.SECRET_KEY }}

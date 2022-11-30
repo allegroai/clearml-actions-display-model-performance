@@ -1,5 +1,5 @@
 # action.yml
-name: 'ClearML get task stats'
+name: 'ClearML display model performance'
 description: 'Search ClearML for a task corresponding to the current PR and add a comment with its scalars.'
 inputs:
   CLEARML_API_ACCESS_KEY:

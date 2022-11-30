@@ -18,7 +18,7 @@ If these are all true, then we can assume that the PR submitter has successfully
 ## Example usage
 
 ```yaml
-name: Get task stats
+name: Display model performance
 on:
   pull_request:
     branches: [ main ]
